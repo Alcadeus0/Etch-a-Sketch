@@ -1,20 +1,24 @@
 body {
-    background-color:thistle;
+    background-image: linear-gradient(to bottom, thistle, coral);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .container{
-    width: 450px;
-    height: 450px;
     display: grid;
-    justify-content: center;}
-
-.outerbody{
-    background-color: black;
-    display: flex;
     justify-content: center;
-    padding: 100px;
+    height: 750px;
+    width: 750px;
+    margin-bottom: 50px;
+    border: brown 1px solid;
 }
+
+.grid{
+    background-color: beige;
+    text-align: center;
+    border: brown 1px solid;
+}
+
 .buttons{
     display: flex;
     gap: 20px;
@@ -23,29 +27,22 @@ body {
     padding-bottom: 50px;
 }
 button{
-    font-size: 20px;
+    font-size: 30px;
     color:darkred;
     font-family: Helvetica;
     padding: 5px;
-    border:rgb(152, 100, 237) 2px solid;
+    border:rgb(152, 100, 237) 2px groove;
     border-width: 3px;
     border-radius: 8px;
 }
 
 #header{
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
+    display: inline-block;
+    font-size: 100px;
     color: beige;
     font-family: cursive;
     background-color: rgb(152, 100, 237);
-    margin: 0px 100px 0px 100px;
     border-radius: 15px;
-}
-.grid{
-    background-color: beige;
-    border: 2px solid brown;
-    text-align: center;
-    padding: 10px;
-    
+    padding: 20px;
+    border: brown 5px groove;
 }
