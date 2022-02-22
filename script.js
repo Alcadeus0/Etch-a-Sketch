@@ -45,7 +45,9 @@ clearGrid.addEventListener('click', ()=>{
 const black = document.querySelector('#black');
 black.addEventListener('click', ()=>{
     document.querySelectorAll('.grid').forEach((grid)=>{
-        grid.addEventListener('mouseenter', paint)
+        grid.addEventListener('mouseenter', ()=>{
+            grid.style.background = 'black';
+        });
     });
 });
 
@@ -73,4 +75,4 @@ function paint(e){
 }
 
 
-grid(10);
+grid(16);
