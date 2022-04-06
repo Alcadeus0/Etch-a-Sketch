@@ -14,7 +14,6 @@ function grid(number){
         let square = document.createElement('div');
         square.classList.add('grid');
         container.append(square);
-        square.addEventListener('mouseover', paint);
     };
 }
 
@@ -31,7 +30,6 @@ function colorEtch(){
         });
     }
 
-
 const colours = document.querySelector('#rgb');
 colours.addEventListener('click', colorEtch);
 
@@ -43,14 +41,26 @@ clearGrid.addEventListener('click', ()=>{
 });
 
 const black = document.querySelector('#black');
-black.addEventListener('click', ()=>{
-    document.querySelectorAll('.grid').forEach((grid)=>{
-        grid.addEventListener('mouseenter', ()=>{
-            grid.style.background = 'black';
-        });
-    });
-});
+black.addEventListener('click', paint);
 
+function paint(){
+    let boxes = document.querySelectorAll('.grid');
+    boxes.forEach((grid)=>{
+        grid.addEventListener('mousedown', ()=>{
+            boxes.forEach((grid)=>{grid.addEventListener('mouseover',()=>{
+                grid.style.background = 'black';
+            });
+            });
+        grid.addEventListener('mouseup',()=>{
+            boxes.forEach((grid)=>{
+                grid.removeEventListener('mouseover',()=>{
+                    grid.style.background = 'black';
+                })
+            });
+        });
+        })
+    })
+}
 /*const greyScale = document.querySelector('#grey');
 greyScale.addEventListener('click', ()=>{
     document.querySelectorAll('.grid').forEach((grid)=>{
@@ -69,10 +79,6 @@ resizeGrid.addEventListener('click', ()=>{
     container.innerHTML = '';
     grid(input);
 });
-
-function paint(e){
-    e.target.style.background = 'black';
-}
 
 
 grid(16);
